@@ -1,0 +1,85 @@
+{
+  "entities": {
+    "Order": {
+      "title": "Order",
+      "description": "Customer order placed via website form or recorded by admin",
+      "type": "object",
+      "properties": {
+        "productId": { "type": "string" },
+        "productName": { "type": "string" },
+        "productPrice": { "type": "number" },
+        "productUnit": { "type": "string" },
+        "quantity": { "type": "number" },
+        "totalPrice": { "type": "number" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "customerAddress": { "type": "string" },
+        "customerNotes": { "type": "string" },
+        "status": { "type": "string", "enum": ["new", "confirmed", "delivered", "cancelled", "pending", "Pending", "Delivered", "Cancelled"] },
+        "isRead": { "type": "boolean" },
+        "isNotified": { "type": "boolean" },
+        "confirmedAt": { "type": "string" },
+        "deliveredAt": { "type": "string" },
+        "source": { "type": "string", "enum": ["website_form", "whatsapp", "admin"] },
+        "createdAt": { "type": "string" },
+        "product": { "type": "string" },
+        "unitPrice": { "type": "number" },
+        "total": { "type": "number" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "date": { "type": "string" },
+        "paymentMethod": { "type": "string" }
+      },
+      "required": ["customerName", "quantity"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "Product review and star rating submitted by customer with moderation status",
+      "type": "object",
+      "properties": {
+        "productId": { "type": "string" },
+        "productName": { "type": "string" },
+        "customerName": { "type": "string" },
+        "customerPhone": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "status": { "type": "string", "enum": ["approved", "hidden"] },
+        "createdAt": { "type": "string" },
+        "adminReply": { "type": "string" }
+      },
+      "required": ["productId", "productName", "customerName", "rating", "comment", "status"]
+    },
+    "StoreSettings": {
+      "title": "StoreSettings",
+      "description": "Store configuration, payment methods, delivery charges, and communication channel settings",
+      "type": "object",
+      "properties": {
+        "storeName": { "type": "string" },
+        "whatsapp": { "type": "string" },
+        "messengerUsername": { "type": "string" },
+        "messengerEnabled": { "type": "boolean" },
+        "whatsappEnabled": { "type": "boolean" },
+        "callEnabled": { "type": "boolean" },
+        "primaryPhone": { "type": "string" },
+        "messengerGreeting": { "type": "string" },
+        "deliveryCharge": { "type": "number" },
+        "freeDeliveryEnabled": { "type": "boolean" },
+        "freeDeliveryThreshold": { "type": "number" }
+      }
+    }
+  },
+  "firestore": {
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Stores all customer orders"
+    },
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Stores customer product reviews and ratings"
+    },
+    "/settings/{settingId}": {
+      "schema": "StoreSettings",
+      "description": "Stores global app settings and contact channels"
+    }
+  }
+}

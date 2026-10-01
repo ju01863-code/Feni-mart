@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   MOBILE-FIRST GLOBAL CONSTRAINTS & STYLES
+   ========================================================================= */
+
+:root {
+  --color-primary-dark: #0A4A29;
+  --color-primary-bright: #1E8A52;
+  --color-gold: #FFB300;
+  --color-bg-light: #F4F8F4;
+  --color-cream: #FFF7E8;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  font-size: 16px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100vw;
+  font-family: 'Hind Siliguri', 'Noto Sans Bengali', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Prevent iOS Safari auto-zoom on input focus by guaranteeing 16px font */
+input,
+select,
+textarea {
+  font-size: 16px !important;
+  font-family: inherit;
+  touch-action: manipulation;
+}
+
+/* Interactive elements min touch targets */
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+/* Scrollbar hide utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile-friendly safe spacing */
+.safe-bottom-space {
+  padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+}
+
+/* Modal independent scroll helper */
+.modal-scroll-body {
+  max-height: calc(85vh - 120px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Line clamps */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* iOS bounce fix */
+.overscroll-contain {
+  overscroll-behavior: contain;
+}

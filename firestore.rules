@@ -1,0 +1,53 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /products/{document=**} {
+      allow read, write: if true;
+    }
+    match /settings/{document=**} {
+      allow read, write: if true;
+    }
+    match /orders/{document=**} {
+      allow read, write: if true;
+    }
+    match /purchases/{document=**} {
+      allow read, write: if true;
+    }
+    match /transactions/{document=**} {
+      allow read, write: if true;
+    }
+    match /customers/{document=**} {
+      allow read, write: if true;
+    }
+    match /gifts/{document=**} {
+      allow read, write: if true;
+    }
+    match /suppliers/{document=**} {
+      allow read, write: if true;
+    }
+    match /categories/{document=**} {
+      allow read, write: if true;
+    }
+    match /offers/{document=**} {
+      allow read, write: if true;
+    }
+    match /packages/{document=**} {
+      allow read, write: if true;
+    }
+    match /prebookings/{document=**} {
+      allow read, write: if true;
+    }
+    match /prebooking_orders/{document=**} {
+      allow read, write: if true;
+    }
+    match /dailyDeals/{document=**} {
+      allow read, write: if true;
+    }
+    match /specialOffers/{document=**} {
+      allow read, write: if true;
+    }
+    match /reviews/{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
